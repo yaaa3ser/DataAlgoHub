@@ -6,7 +6,6 @@ personal reference repository for common algorithms and data structures implemen
 - [Arrays](#arrays)
     - [Static Array](#static-array)
     - [Dynamic Array](#dynamic-array)
-      - [Dynamic Array Implementation](#dynamic-array-implementation) 
     - [Summary](#summary)
 
 <br/>
