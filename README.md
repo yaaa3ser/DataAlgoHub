@@ -77,7 +77,7 @@ personal reference repository for common algorithms and data structures implemen
  - **Idea**: store pointer to a dynamically allocated array and replace it with a newly-allocated array as needed.
  - [Dynamic Array Implementation](./Data_structures/array.py)
 <br/>
-## Summary
+### Summary
 
 - Unlike static arrays, dynamic arrays can be resized.
 - Appending an item to a dynamic array is O(1) on average, but O(n) worst-case, because of the possibility of having to allocate a new array and copy over the old elements.
