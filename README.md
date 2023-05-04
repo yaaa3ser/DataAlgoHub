@@ -75,9 +75,7 @@ personal reference repository for common algorithms and data structures implemen
 
 - **Solution**: dynamic arrays (also known as resizable arrays) 
  - **Idea**: store pointer to a dynamically allocated array and replace it with a newly-allocated array as needed.
-  <br/>
-- #### Dynamic Array Implementation
-    - [code](./Data_structures/array.py)
+ - [Dynamic Array Implementation](./Data_structures/array.py)
 <br/>
 ## Summary
 
