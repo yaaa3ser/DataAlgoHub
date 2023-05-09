@@ -9,6 +9,7 @@ personal reference repository for common algorithms and data structures implemen
     - [Summary](#summary_0)
 - [Linked List](#linked-list)
     - [Singly Linked List](#singly-linked-list)
+      - [Singly Linked List Implementation](./Data_structures/singly_linked_list.py)
     - [Doubly Linked List](#doubly-linked-list)
     - [Circular Linked List](#circular-linked-list)
     - [Summary](#summary_1)
