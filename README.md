@@ -16,7 +16,7 @@ personal reference repository for common algorithms and data structures implemen
 - [Stacks](#stacks)
     - [Main Functions Time Complexity](#main-functions-time-complexity)
     - [Use Cases](#use-cases)
-    - [Implementation](#stack-implementation)
+    - [Stack Implementation](#stack-implementation)
 
 <br/>
 <br/>
@@ -192,10 +192,12 @@ personal reference repository for common algorithms and data structures implemen
       - keeping track of function calls in a program
 
 - #### **Stack Implementation**
-  I used **Dynamic Array** to implement **Array Based Stack**.
+  I used **Dynamic Array** & **Linked List** to implement **Array Based Stack**.
 
 
-  GOTO [Stack Implementation](./Data_structures/stackArray.py)
+  - GOTO [Array Stack Implementation](./Data_structures/stackArray.py)
+  - GOTO [Linked List Stack Implementation](./Data_structures/stackLinkedList.py)
+
 </br>
 </br>
 </br>
