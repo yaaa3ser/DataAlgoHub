@@ -19,7 +19,7 @@ personal reference repository for common algorithms and data structures implemen
     - [Stack Implementation](#stack-implementation)
 - [Queues](#queues)
     - [Main Functions Time Complexity](#main-functions-time-complexity)
-    - [Use Cases](#use-cases)
+    - [Use Cases](#queue-use-cases)
     - [Queue Implementation](#queue-implementation)
 
 <br/>
@@ -216,7 +216,7 @@ personal reference repository for common algorithms and data structures implemen
   - **dequeue**: O(1) 
   - **front**: O(1)
 
-- #### **Use Cases**
+- #### **Queue Use Cases**
   - Customer service call centers: When a customer calls a support line, their call is put in a **queue** until 
     a representative is available to take their call. The representative will then take 
     the calls in the order they were received.
