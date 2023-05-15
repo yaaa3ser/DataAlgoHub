@@ -13,6 +13,10 @@ personal reference repository for common algorithms and data structures implemen
     - [Doubly Linked List](#doubly-linked-list)
     - [Circular Linked List](#circular-linked-list)
     - [Summary](#summary_1)
+- [Stacks](#stacks)
+    - [Main Functions Time Complexity](#main-functions-time-complexity)
+    - [Use Cases](#use-cases)
+    - [Implementation](#stack-implementation)
 
 <br/>
 <br/>
@@ -80,7 +84,7 @@ personal reference repository for common algorithms and data structures implemen
 
 - **Solution**: dynamic arrays (also known as resizable arrays) 
  - **Idea**: store pointer to a dynamically allocated array and replace it with a newly-allocated array as needed.
- - [Dynamic Array Implementation](./Data_structures/array.py)
+ - [Dynamic Array Implementation](./Data_structures/arrray.py)
 
 ### Summary_0
 
@@ -166,4 +170,32 @@ personal reference repository for common algorithms and data structures implemen
   - Accessing an element in a linked list is a linear operation because we have to sequentially traverse the list until we find the desired element.
   - Linked lists have dynamic size, unlike arrays which have fixed size. So, it is not required to pre-allocate memory for a linked list.
   - The drawbacks of using linked list are that they require extra memory for pointers and they are not cache friendly (elements are not stored in contiguous locations).
-  
+
+</br>
+</br>
+</br>
+
+# Stacks
+
+- A **Stack** is a collection of objects that are inserted and removed according to the last-in, ﬁrst-out (LIFO) principle.
+- #### **Main Functions Time Complexity**
+  - **push**: O(1)
+  - **pop**: O(1) 
+  - **top**: O(1) 
+
+- #### **Use Cases**
+  - **Backtracking**
+     - finding the correct path in a maze
+  - **Undo**
+     - undoing an action in a word processor
+  - **Call Stack**
+      - keeping track of function calls in a program
+
+- #### **Stack Implementation**
+  I used **Dynamic Array** to implement **Array Based Stack**.
+
+
+  GOTO [Stack Implementation](./Data_structures/stackArray.py)
+</br>
+</br>
+</br>
