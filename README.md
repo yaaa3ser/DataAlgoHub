@@ -17,6 +17,10 @@ personal reference repository for common algorithms and data structures implemen
     - [Main Functions Time Complexity](#main-functions-time-complexity)
     - [Use Cases](#use-cases)
     - [Stack Implementation](#stack-implementation)
+- [Queues](#queues)
+    - [Main Functions Time Complexity](#main-functions-time-complexity)
+    - [Use Cases](#use-cases)
+    - [Queue Implementation](#queue-implementation)
 
 <br/>
 <br/>
@@ -190,13 +194,48 @@ personal reference repository for common algorithms and data structures implemen
      - undoing an action in a word processor
   - **Call Stack**
       - keeping track of function calls in a program
+  - **depth-first search**
+      - keeping track of visited nodes in a graph or tree
 
 - #### **Stack Implementation**
-  I used **Dynamic Array** & **Linked List** to implement **Array Based Stack**.
+  I used **Dynamic Array** & **Linked List** to implement **Stack**.
 
 
   - GOTO [Array Stack Implementation](./Data_structures/stackArray.py)
   - GOTO [Linked List Stack Implementation](./Data_structures/stackLinkedList.py)
+
+</br>
+</br>
+</br>
+
+# Queues
+
+- A **Queue** is a collection of objects that are inserted and removed according to the first-in, ﬁrst-out (FIFO) principle.
+- #### **Main Functions Time Complexity**
+  - **enqueue**: O(1)
+  - **dequeue**: O(1) 
+  - **front**: O(1)
+
+- #### **Use Cases**
+  - Customer service call centers: When a customer calls a support line, their call is put in a **queue** until 
+    a representative is available to take their call. The representative will then take 
+    the calls in the order they were received.
+
+  - Printers: When multiple documents are sent to a printer, they are placed in a **queue** and processed one at a time.
+    The first document to be sent to the printer is the first one to be printed, and the subsequent documents are 
+    printed in the order they were received.
+
+  - Operating systems: When a program requests memory from the operating system, the operating system will place the 
+    program in a **queue** and allocate memory to the program when memory becomes available.
+
+  - Breadth-ﬁrst search: When searching a tree or graph, we can use a **queue** to store the nodes that we have yet to visit. 
+    The nodes are placed in a **queue** in the order they are visited, and removed from the **queue** in the same order.
+  
+- #### **Queue Implementation**
+  I used **Dynamic Array** & **Linked List** to implement **Queue**.
+
+  - GOTO [Array Queue Implementation](./Data_structures/queueArray.py)
+  - GOTO [Linked List Queue Implementation](./Data_structures/queueLinkedList.py)
 
 </br>
 </br>
