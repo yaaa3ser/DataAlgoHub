@@ -34,6 +34,8 @@ class LinkedList:
         
     # adds an item to the front of the list
     def push_front(self, value):
+        if self.is_empty():
+            self.tail = Node(value)
         new_node = Node(value)
         new_node.next = self.head
         self.head = new_node
@@ -43,11 +45,12 @@ class LinkedList:
     def pop_front(self):
         if self.is_empty():
             return None
-        else:
-            current = self.head
-            self.head = current.next
-            self.size -= 1
-            return current.data
+        elif self.size == 1:
+            self.tail = None
+        current = self.head
+        self.head = current.next
+        self.size -= 1
+        return current.data
         
     # adds an item at the end
     def push_back(self, value):
@@ -65,7 +68,6 @@ class LinkedList:
         if self.is_empty():
             return None
         if self.size == 1:
-            self.tail = None
             return self.pop_front()
         else:
             current = self.head
@@ -78,11 +80,11 @@ class LinkedList:
     
     # get value of front item
     def front(self):
-        return self.head.data
+        return self.head.data if self.head else None
     
     # get value of end item
     def back(self):
-        return self.tail.data
+        return self.tail.data if self.tail else None
     
     # insert value at index, so current item at that index is pointed to by new item at index
     def insert(self, index, value):
@@ -171,8 +173,15 @@ ll = LinkedList()
 # print(ll.size)
 # print(ll.value_at(0))
 # ll.retrieve()
-# ll.push_front(2)
-# ll.push_front(3)
+# ll.push_back(2)
+# ll.pop_back()
+# ll.push_back(3)
+# print(ll.front())
+# print(ll.back())
+# ll.retrieve()
+# ll.remove_value(2)
+# print(ll.front())
+# print(ll.back())
 # ll.retrieve()
 # print(ll.value_at(0))
 # print(ll.value_at(1))
