@@ -23,7 +23,12 @@ class QueueArray:
         item = self.arr[self.read]
         self.read = (self.read + 1) % self.capacity
         # Resize if the queue is 1/4 full
-        if self.capacity > 1 and (self.write - self.read) <= self.capacity // 4:
+        current_size = 0
+        if self.read <= self.write:
+            current_size = self.write - self.read
+        else:
+            current_size = self.capacity - self.read + self.write
+        if self.capacity > 1 and current_size <= self.capacity // 4:
             self.__resize(self.capacity // 2)
         return item
     # resize the array to the new capacity and edit the read and write pointers
@@ -59,9 +64,10 @@ class QueueArray:
             
             
     def retrieve(self):
-        for i in range(self.read, self.write):
-            print(self.arr[i], end = " ")
-        print()
+        if self.read <= self.write:
+            print(self.arr[self.read:self.write])
+        else:
+            print(self.arr[self.read:] + self.arr[:self.write])
     
 # "============================================="
 # "================= TESTING ==================="
@@ -82,18 +88,18 @@ q.enqueue(4)
 q.enqueue(5)
 print(q.write, q.read, q.capacity)
 q.enqueue(6)
-# q.enqueue(7)
-# print(q.is_full())
-# q.enqueue(8)
-# q.retrieve()
-print(q.write, q.read, q.capacity)
-print(q.is_full())
-q.enqueue(7)
-print(q.write, q.read, q.capacity)
-# q.retrieve()
-q.dequeue()
-q.dequeue()
-q.dequeue()
 q.retrieve()
 print(q.write, q.read, q.capacity)
+q.dequeue()
+print(q.write, q.read, q.capacity)
+q.retrieve()
+# print(q.is_full())
+# q.enqueue(7)
+# print(q.write, q.read, q.capacity)
+# # q.retrieve()
+# q.dequeue()
+# q.dequeue()
+# q.dequeue()
+# q.retrieve()
+# print(q.write, q.read, q.capacity)
 
