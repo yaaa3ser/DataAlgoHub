@@ -21,6 +21,23 @@ personal reference repository for common algorithms and data structures implemen
     - [Main Functions Time Complexity](#main-functions-time-complexity)
     - [Use Cases](#queue-use-cases)
     - [Queue Implementation](#queue-implementation)
+- [Hash Tables](#hash-tables)
+    - [what is a hash table?](#what-is-a-hash-table)
+    - [Use cases](#hash-table-use-cases)
+    - [Main Functions Time Complexity](#functions-time-complexity)
+    - [simple approach](#simple-approach)
+      - [Badness](#badness)
+      - [solution](#solution)
+    - [Collision](#collision)
+      - [what is collision?](#what-is-collision)
+      - [how to handle collision?](#how-to-handle-collision)
+        - [chaining](#chaining)
+          - [chaining implementation](#chaining-implementation)
+        - [open addressing](#open-addressing)
+          - [linear probing](#linear-probing)
+            - [linear probing implementation](#linear-probing-implementation)
+          - [double hashing](#double-hashing)
+
 
 <br/>
 <br/>
@@ -240,3 +257,162 @@ personal reference repository for common algorithms and data structures implemen
 </br>
 </br>
 </br>
+
+# Hash Tables
+## what is a Hash Table?
+- A **Hash Table** is a data structure that maps keys to values for highly efficient lookup.
+
+## Hash Table Use cases
+- **Indexing in databases**
+- **Cryptography**
+- **Symbol Tables in Compilers**
+- **Dictionary, caches, etc**
+
+## Functions Time Complexity
+- **Insert**: O(1)
+- **Delete**: O(1)
+- **Search**: O(1)
+</br></br>
+
+## Simple Approach
+- **Direct Access Table**
+  - If we want a data structure to store a set of integers, we can use an array to store the value at an index equal to the integer. For example, if we want to store the set of integers {1, 4, 5, 8, 10}, we can create an array of size 11 (the largest integer in the set plus one) and store the value at the index equal to the integer. The value at index 0 will be unused, and the value at index 1 will be 1, the value at index 4 will be 4, and so on. This data structure is called a direct-access table because we can directly access the values in the array using the integers as indices.
+
+    <img src="data:image/png;base64,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" style = "width:80%" alt = "Figure for Direct Access Table">
+
+  ### Badness
+    1. keys may not be non negative integers
+    2. gigantic memory hog
+  ### Solution
+  - **Solution for 1**
+    - **prehashing** (```hash(x)``` in python) ==> maps keys to non negative integers
+    - ```hash(x)``` use the default id, which is the physical location of the object in memory
+    - (no to items occupy the same memory location)
+
+  - **Solution for 2**
+    - **hashing**: what we talked about before going into this simple approach
+    - reduce universal of all keys down to reasonable size m for table
+
+    - ![](/images/hash.png)
+    - there in the last image: **h(k2) == h(k5) which is a collision**
+  
+    - if we assume that n is the number of keys and m is the size of the table the average number of keys in each 
+    linked list is n/m so the average time complexity of searching is O(1 + (n/m)) keep in mind that if the n is much
+    smaller than m the average time complexity is O(1) but we will have a lot of empty space in the table
+    and if the n is much bigger than m the average time complexity is O(n)
+    </br>
+    > so we want m to be big enough to avoid collision and small enough to avoid empty space
+    > - MIT OPEN COURSEWARE
+        
+    - so How to choose m?
+
+      - first approach is to choose m to be some small constant let's say 8 and we extend the table and shrink it when needed
+      BUT thhis approach is comming with the previous concept of dynamic array **Amortization**
+      
+    </br>
+
+## Collision
+  ### what is collision?
+  - **collision**: two distinct keys map to the same slot in the hash table
+
+  ## How to handle collision
+  ## Chaining
+  - Hashing with chaining is a method of collision resolution
+    In this method we use a linked list to store the collided keys
+    </br></br>
+
+
+    <img src="https://www.eecs.umich.edu/courses/eecs380/ALG/niemann/s_fig31.gif" style ="width:80%" />
+    </br>
+    
+    #### **Chaining implementation**:
+    - GOTO [Chaining implementation](/Data_structures/hash%20table/chaining.py)
+
+  ## Open Addressing
+  - **probing**: try to see if we can insert something into the hash table, and if you fail, we're going to recompute a slightly different hash function and try again
+
+    - ```insert(key, value) ```: keep probing until an empty slot is found. Once an empty slot is found, insert key.
+    - ```search(key)```: keep probing until slot’s key doesn’t become equal to given key or an empty slot is reached.
+    - ```delete(key)```: delete operation is interesting. If we simply delete a key, then search may fail. So slots of deleted keys are marked specially as “deleted”.
+    ### **Linear Probing**
+    - in this method we use the next empty slot in the table to store the collided key according to the following formula
+    </br>
+      <code>
+      h(key,i) = (h'(key) + i) mod m
+      </code>
+      where h'(key) is an ordinary hashing function</br>
+      and i is the number of collisions</br>
+      and m is the size of the table</br>
+      and h(key,i) is the probing function</br>
+      </br>
+    - disadvantage of this method is **clustering**</br>
+
+    > the problem with the clusters is that it will grow rapidly
+    > for example if we have a table of size 100 and we have a cluster of 4 items in the table and we want to insert a new item
+    > the probability of collision is 4/100 = 4% which is 4 time bigger than the probability of collision in the first place
+    > and we can essentially argue through making probabilistic assumptions that that if in fact we use linear probing we will
+    > lose our avg. constant time lookup
+    > - MIT OPEN COURSEWARE
+    
+    </br>
+
+      #### **Linear Probing implementation**: 
+      - GOTO [Linear Probing implementation](/Data_structures/hash%20table/linear_probing.py)
+  </br></br>
+    ### **Double Hashing**
+    - in this method we use the next empty slot in the table to store the collided key according to the following formula
+    </br>
+      <code>
+      h(key,i) = (h'(key) + i*h''(key)) mod m
+      </code>
+      where h'(key) is an ordinary hashing function</br>
+      and h''(key) is another hashing function</br>
+      and i is the number of collisions</br>
+      and m is the size of the table</br>
+      </br>
+      
+## Hashing functions
+1. Division method
+   
+    in this method we divide the key by the size of the table and take the remainder</br>
+    ```python
+    def hash(key, size):
+        return key % size
+    ```
+</br>
+
+2. Multiplication method
+
+   key = [a*k mod 2^w] >> (w-r)
+   </br>
+   in this method we multiply the key by a constant a and take the most significant bits</br>
+   where a is a random number between 0 and 2^w</br>
+   and r is the number of bits we want to take (m = 2^r)</br>
+   and w is the number of bits in word in the machine</br>
+   ```python
+    def hash(key, size):
+        a = random.randint(0, 2**w)
+         return ((a*key) % 2**w) >> (w-r)
+    ```
+</br>
+
+3. Universal hashing
+
+    key = (a*k + b) mod p mod m</br>
+    in this method we multiply the key by a constant a and add another constant b and take the remainder</br>
+    where a and b are random numbers between 0 and p</br>
+    p is a huge prime number (bigger than the size of key universe)</br>
+    m is the size of the table</br>
+    ```python
+    def hash(key, size):
+        p = "HUGE PRIME NUMBER"
+        a = random.randint(0, p)
+        b = random.randint(0, p)
+        return ((a*key) + b) % p % size
+    ```
+
+    </br>
+
+    this method is better than the previous methods because it's more random</br>
+    and if the a,b randomization is done correctly it will be very hard to find a collision</br>
+    the Pr of collision is 1/m</br>
