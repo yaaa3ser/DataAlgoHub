@@ -37,6 +37,7 @@ personal reference repository for common algorithms and data structures implemen
           - [linear probing](#linear-probing)
             - [linear probing implementation](#linear-probing-implementation)
           - [double hashing](#double-hashing)
+    - [Nice Tutorial about python dictionary](#nice-tutorial-about-python-dictionary)
 
 
 <br/>
@@ -44,6 +45,12 @@ personal reference repository for common algorithms and data structures implemen
 <br/>
 
 # Big-O
+- Big O notation does not determine the actual execution time of an algorithm, but rather provides a way to classify algorithms based on their scalability.
+
+-  It provides an upper bound on the time complexity of an algorithm, indicating how the algorithm's execution time grows as the size of the input increases.
+
+
+
 
 **what is ***Big-O Notation*** and what is ***Omega*** and ***Theta*** ?**
 
@@ -78,6 +85,13 @@ personal reference repository for common algorithms and data structures implemen
 - **Big-O Complexity Chart**
 
   <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5ZLci3SuR0zM_QlZOADv8Q.jpeg" style = "width:80%" alt = "Figure for Big-Oh Notation">
+
+  - Big O notation does not determine the actual execution time of an algorithm, but rather provides a way to classify algorithms based on their scalability.
+
+-  It provides an upper bound on the time complexity of an algorithm, indicating how the algorithm's execution time grows as the size of the input increases.
+
+
+
 
 <br />
 
@@ -414,3 +428,9 @@ personal reference repository for common algorithms and data structures implemen
     this method is better than the previous methods because it's more random</br>
     and if the a,b randomization is done correctly it will be very hard to find a collision</br>
     the Pr of collision is 1/m</br>
+
+# Nice Tutorial about python dictionary
+### See the clearest Python dictionary background explanation:
+https://www.youtube.com/watch?v=C4Kc8xzcA68
+### And this is the link to slides: (It is very useful):
+https://rhodesmill.org/brandon/slides/2010-03-pycon/
