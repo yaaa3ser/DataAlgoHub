@@ -300,9 +300,8 @@ personal reference repository for common algorithms and data structures implemen
     smaller than m the average time complexity is O(1) but we will have a lot of empty space in the table
     and if the n is much bigger than m the average time complexity is O(n)
     </br>
-    > so we want m to be big enough to avoid collision and small enough to avoid empty space
-    > - MIT OPEN COURSEWARE
-        
+    - so we want m to be big enough to avoid collision and small enough to avoid empty space
+          
     - so How to choose m?
 
       - first approach is to choose m to be some small constant let's say 8 and we extend the table and shrink it when needed
